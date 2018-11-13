@@ -8,7 +8,7 @@ var stylus = require('stylus');
 var cors = require('cors');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1/wasteManagement');
+mongoose.connect('mongodb://nearby:@nearby127.0.0.1/wasteManagement');
 
 var index = require('./routes/index');
 

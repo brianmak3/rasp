@@ -17,8 +17,8 @@ var session = require('express-session');
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'christinmobileapp@gmail.com',
-        pass: 'christ-inapp'
+        user: 'machariawinnie49@gmail.com',
+        pass: '30795350'
     }
 });
 var bins = [
