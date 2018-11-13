@@ -1,0 +1,154 @@
+.alertDanger{
+	text-align: center;
+	border-radius: 20px;
+	background-color: white;
+	color: red;
+	background-color: white;
+	margin: 10px;
+	font-size: 14px;
+	padding:10px;
+}
+body{
+	background-color: wheat;
+	padding-top: 70px;
+}
+h1{
+	text-align: center;
+}
+#image{
+	height:150px;
+	width:150px;
+}
+#image1{
+	height:35px;
+	width:35px;
+	margin-left: 30px;
+}
+form{
+	margin-left: 30%;
+	padding-top: 4%;
+	display: inline-block;
+
+}
+.login{
+	font-size: 20px;
+	color: green;
+	font-weight: bold;
+}
+.fieldName{
+	font-size: 16px;
+	font-family: cursive;
+}
+input, select{
+	width: 250px;
+	border: 1px solid lightgrey;
+	height: 25px;
+	border-radius: 30px;
+	background-color: transparent;
+	box-shadow: 1px 1px 1px ;
+	padding-left: 20px;
+}
+textarea{
+	width: 250px;
+	border: 1px solid lightgrey;
+	border-radius: 10px;
+	background-color: transparent;
+	box-shadow: 1px 1px 1px ;
+	padding:10px;
+	resize: none;
+}
+button{
+	background-color: lightgreen;
+	width: 100px;
+	font-size: 16px;
+	border: none;
+	height: 35px;
+	border-radius: 30px;
+	box-shadow: 2px 2px 1px ;
+}
+.iconx{
+	height: 30px;
+	width:30px;
+}
+.icon{
+	background-color: transparent;
+	float: right;
+	margin-right: 10px;
+	box-shadow: none;
+}
+.active, .icon:hover{
+ background-color: rgba(0,0,0,0.5);
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 5px;
+}
+.fullIndicator{
+	height:7px;
+	border: 1px solid lightgrey;
+	border-radius: 10px;
+	text-align: left;
+}
+.indicator{
+	height: 100%;
+	border-radius: 10px;
+}
+.numInd{
+	font-size: 12px;
+}
+.iconAction{
+	height:15px;
+	width:15px;
+	border-radius: 50%;
+}
+#assign{
+	display: none;
+	background-color: rgba(0,0,0,0.6);
+	position: fixed;top: 0px;
+	left:0px;
+	height: 100%;
+	width: 100%;
+	padding-left: 10%;
+}
+#assignUser{
+	background-color: beige;
+	display: inline-block;
+	text-align: center;
+	padding: 20px;
+	margin-top: 30%;
+	border-radius: 5px;
+}
+
+.close:hover{
+	background-color: rgba(0,0,0,0.2);
+}
+#assignUser #continueMsg{
+	background-color: skyblue;
+	height:30px;
+	font-size: 12px;
+	margin-top: 15px;
+	cursor: pointer;
+}
+.close{
+	background-color: transparent;
+	box-shadow: none;
+	width:30px;
+	font-size: 20px;
+	float: right;
+	color:black;
+	cursor: pointer;
+}
+#info{
+	display: none;
+	position: fixed;
+	top:27%;
+	left:10%;
+	background-color: #DEB887;
+	height:40%;
+	width:80%;
+	box-shadow: 2px 2px 1px grey;
+	border-radius: 10px;
+	padding: 10px;
+}

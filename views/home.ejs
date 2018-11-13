@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+  <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+  
+ <h1>Waste management system<img src="assets/waste.png" id="image1"></h1>
+ <div>
+ 	<a href="/end"><button class="icon" value="logout" ><img src="assets/logout.png" class="iconx"></button></a>
+ 	<button class="icon active" value="view"><img src="assets/notes.png" class="iconx"></button>
+ 	<% if(user.role == 'Admin'){%><button class="icon" value="addUser"><img src="assets/addUser.png" class="iconx"></button><%}%>
+ </div><br/>
+  <form id="userDiv" style="display: none;">
+  	      <div class="alertDanger" style="padding: 0px;"></div>
+  	     <div class="login"> Adding new user</div><br/>
+  	     <span class="fieldName">Username</span><br/>
+  	     <input type="text" placeholder="type username" name="username" required><br/><br/>
+  	      <span class="fieldName">Email</span><br/>
+  	     <input type="email" placeholder="type email" name="email" required><br/><br/>
+  	      <span class="fieldName">Phone</span><br/>
+  	     <input type="number" placeholder="type phone number" name="phone" required><br/><br/>
+  	     <span class="fieldName">Location</span><br/>
+  	     <input type="text" placeholder="type location" name="location" required><br/><br/>
+  	      <span class="fieldName">Role</span><br/>
+  	     <select name="role">
+  	     	<option>Worker</option>
+  	     	<option>Admin</option>
+  	     </select><br/><br/>
+  	     <span class="fieldName">Password</span><br/>
+  	     <input type="password" placeholder="type password" name="password" required><br/><br/>
+  	     <button style="background-color: lightblue">Add user</button>
+  </form>
+  <br/>  <br/>
+  <%if(user.role == 'Admin'){%> 
+  <table id="table" style="width:100%;">
+  <tr>
+    <th>Trash label</th>
+    <th>Location</th> 
+    <th>Current level indicator</th>
+    <th>Action</th>
+  </tr>
+  <% for(q=0; q < bins.length; q++){ var bin = bins[q]%>
+    <tr>
+      <td><%= bin.label%></td>
+      <td><%= bin.location%></td> 
+      <td>
+           <span class="numInd <%= bin.bin%>">0%</span>
+        <div class="fullIndicator">
+          <div class="indicator" id="<%= bin.bin%>"></div>
+        </div>
+      </td>
+      <td><button class="userTask" value="userAssign" style="background-color: transparent; height:auto;width:auto" id="bin<%= bin.bin%>">
+        <img src="assets/assign.png" class="iconAction">
+      </button>
+      <button class="userTask" value="tasks" id="tin<%= bin.bin%>" style="background-color: transparent; height:auto;width:auto">
+        <img src="assets/notes.png" class="iconAction">
+      </button>
+      </td>
+    </tr>
+  <%}%>
+</table><%}else{%>
+ <table id="table" style="width:100%;">
+  <tr>
+    <th>Date</th>
+    <th>Trash label</th> 
+    <th>location</th>
+    <th>Message</th>
+  </tr>
+  <% for(q=0; q < rows.length; q++){ var row = rows[q]%>
+    <tr>
+      <td><%= row.date+' '+row.time%></td>
+      <td><%= row.collectBin.label%></td> 
+      <td><%= row.collectBin.location%></td> 
+     <td><%= row.message%></td>
+    </tr>
+  <%}%>
+</table>
+<%}%>
+<%if(user.role == 'Admin'){%> <div id="assign">
+	<form id="assignUser">
+     <button type="button" class="close" value="close">x</button><br/>
+		<div class="login">Assigning worker</div><br/>
+		 <span class="fieldName">Select worker from list</span><br/>
+  	     <select id="workers" name="worker">
+          <% for(x = 0; x < workers.length; workers++){%>
+            <option value="<%= workers[x]%>"><%= workers[x] %></option>
+          <%}%>
+  	     </select><br/><br/>
+  	     <div>
+  	     	<span>Additional message</span><br/>
+  	     	<textarea rows=10 name="msg"></textarea>
+  	     </div>
+  	     <button type="submit" id="continueMsg">Continue</button>
+	</form>
+</div>
+<%}%>
+<div id="info">
+	<button class="close" value="close" style="color: black">x</button><br/>
+	<div>
+		Label: <strong id="binLabel"></strong><br/><br/>
+		Location: <strong id="binLocation"></strong><br/><br/>
+	</div>
+	<div>
+		  <table style="width:100%" id="binData">
+		  	 <caption style="text-align: left;font-style: italic;font-size:13px;" >Bin emptying information</caption>
+		  <tr id="firstrow">
+		    <th>Date</th>
+		    <th>Worker assigned</th> 
+		    <th>Message</th>
+		    <th>Weight collected (Kg)</th>
+		  </tr>
+		</table>
+	</div>
+	
+</div>
+</body>
+</html>

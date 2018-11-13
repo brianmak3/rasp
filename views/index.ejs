@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+  <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+  
+ <h1><img src="assets/waste.png" id="image"><br/>Waste management system</h1>
+  <form action="index" method="post" id="loginForm">
+  	     <% if(err){%><div class="alertDanger" >
+             <span><%= err %></span>
+         </div><%}%> 
+  	     <div class="login"> Log in</div><br/>
+  	     <span class="fieldName">Username</span><br/>
+  	     <input required type="text" placeholder="type username" name="username"><br/><br/>
+  	     <span class="fieldName">Password</span><br/>
+  	     <input required type="password" placeholder="type password" name="password"><br/><br/>
+  	     <button>Log in</button>
+  </form>
+</body>
+</html>
